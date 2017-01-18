@@ -1,0 +1,32 @@
+{
+  "name": "BOT-Discord-Overwatch-Boop",
+  "version": "0.0.1",
+  "description": "Javascript Bot for Discord. Game: Overwatch",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carrotderek/ow-discord.git"
+  },
+  "keywords": [
+    "Discord",
+    "Discordapp",
+    "Client",
+    "Bot",
+    "Overwatch",
+    "Game",
+    "Library"
+  ],
+  "author": "Derek S",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/carrotderek/ow-discord/issues"
+  },
+  "homepage": "https://github.com/carrotderek/ow-discord#readme",
+  "dependencies": {
+    "discord.io": "^2.4.2",
+    "winston": "^2.3.0"
+  }
+}
