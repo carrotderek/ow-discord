@@ -1,25 +1,21 @@
-var logger = require('winston'),
-  DiscordBot = require('discord.io'),
-  auth,
-  bot;
+const Logger = require('winston');
+const Discord = require('discord.io');
+const Env = process.env
 
-
-logger.remove(logger.transports.Console);
-logger.add(logger.transports.Console, {
+var bot;
+Logger.remove(Logger.transports.Console);
+Logger.add(Logger.transports.Console, {
   colorize: true
 });
 
-env = require('./auth.json');
-bot = new DiscordBot({
-  email: env.email,
-  password: env.password,
-  autorun: true
+bot = new Discord.Client({
+  autorun: true,
+  token: Env.BOT_TOKEN
 });
 
 bot.on('ready', function () {
-  logger.info('bot:connected');
-  logger.info('bot:logged-in as:');
-  logger.info(bot.username + ' - (' + bot.id + ')');
+  Logger.info('bot:connected');
+  Logger.info('bot:logged-in as:' + bot.username + ' - (' + bot.id + ')');
 });
 
 bot.on('message', function (user, userId, channelId, message, event) {
