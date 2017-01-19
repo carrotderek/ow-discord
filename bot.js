@@ -1,23 +1,50 @@
-const Logger = require('winston');
 const Discord = require('discord.io');
-const Env = process.env
+const Logger = require('./logger.js');
 
-var bot;
-Logger.remove(Logger.transports.Console);
-Logger.add(Logger.transports.Console, {
-  colorize: true
-});
 
-bot = new Discord.Client({
-  autorun: true,
-  token: Env.BOT_TOKEN
-});
+class Bot {
+  constructor (token) {
+    this.token = token;
+    this.client = {};
+    this.commands = {};
+    this.logger = new Logger();
+  }
 
-bot.on('ready', function () {
-  Logger.info('bot:connected');
-  Logger.info('bot:logged-in as:' + bot.username + ' - (' + bot.id + ')');
-});
+  onReady () {
+    return (() => {
+      this.logger.info('Connected to Discord');
+      this.logger.info('Connected as: ',this.client.username, '(', this.client.id, ')');
+      // initialize commands
+    });
+  }
 
-bot.on('message', function (user, userId, channelId, message, event) {
+  onMessage () {
+    return (message => {
 
-});
+    });
+  }
+
+  onError () {
+    return ((err) => {
+      this.logger.error('ERROR: ', err);
+      this.logger.error(err.trace);
+    });
+  }
+
+  init () {
+
+    this.logger.info('Connecting...');
+    this.client = new Discord.Client({
+      'token': this.token,
+      'autorun': true
+    });
+
+    this.logger.info('Setting up events...');
+    this.client
+      .on('ready', this.onReady())
+      .on('message', this.onMessage())
+      .on('error', this.onError());
+  }
+}
+
+module.exports = Bot;
