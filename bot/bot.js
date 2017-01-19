@@ -1,6 +1,7 @@
 const Discord = require('discord.io');
 const Logger = require('./logger.js');
-
+const Config = require('../config.json');
+const Commands = require('./commands/manager.js');
 
 class Bot {
   constructor (token) {
@@ -8,13 +9,27 @@ class Bot {
     this.client = {};
     this.commands = {};
     this.logger = new Logger();
+    this.config = Config;
+    this.command_regex = new RegExp(`^${this.settings.trigger}\\s+([^\\s]+)\\s*([^]*)\\s*`, 'i');
   }
 
   onReady () {
     return (() => {
       this.logger.info('Connected to Discord');
       this.logger.info('Connected as: ',this.client.username, '(', this.client.id, ')');
+
+      this.client.setPresence({
+        game: {
+          name: '!help for commands'
+        }
+      });
+
       // initialize commands
+      // Object.keys(this.commands).forEach(cmd => {
+      //   if (typeof this.commands[cmd].init === 'function') {
+      //     this.commands[cmd].init(this);
+      //   }
+      // });
     });
   }
 
