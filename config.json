@@ -1,7 +1,4 @@
 {
-  "prefix": "!",
-  "trigger": "!bot",
-  "commands": [
-    "link"
-  ]
+  "token":"token",
+  "owner":["ownerId"]
 }

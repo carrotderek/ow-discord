@@ -1,14 +1,14 @@
-const Bot = require('./bot/bot.js');
+const path = require('path');
+const Bot = require('yamdbf').Bot;
+const Config = require('./config.json');
 const Env = process.env;
 
-function initialize() {
-  var token = Env.BOT_TOKEN;
-
-  if (!token) {
-    throw Error('Missing Discord token');
-  }
-
-  (new Bot(token).init());
-}
-
-initialize();
+const bot = new Bot({
+  name: 'Gayfag',
+  token: Env.BOT_TOKEN,
+  config: Config,
+  selfbot: false,
+  version: '1.0.0',
+  statusText: 'try @mention help',
+  commandsDir: path.join(__dirname, 'commands')
+}).start();
