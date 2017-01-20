@@ -1,9 +1,7 @@
 {
-	"prefix": "!",
-	"trigger": "!bot",
-	"commands": [
-		"help"
-		"link"
-		"owstats"
-	]
+  "prefix": "!",
+  "trigger": "!bot",
+  "commands": [
+    "link"
+  ]
 }
