@@ -1,5 +1,7 @@
 let Yamdbf = require('yamdbf');
 let Discord = require('discord.js');
+let Overwatch = require('../lib/overwatch.js');
+let Constants = require('../lib/util/Constants.js');
 
 exports.default = class Stats extends Yamdbf.Command {
   constructor (bot) {
@@ -24,6 +26,18 @@ exports.default = class Stats extends Yamdbf.Command {
   action (message, args, mentions, original) {
     let msg = new Discord.RichEmbed();
     let guildStorage = this.bot.guildStorages.get(message.guild);
+    let battletag = guildStorage.getItem(message.author.id).battletag;
+
+    if (!battletag) {
+      msg.setColor(Constants.colors.error)
+        .setDescription(`**Error**: ${message.author}: Unable to find associated battletag`);
+    } else {
+      let coo = new Overwatch(battletag);
+      coo.getStats();
+
+    }
+
+
 
     message.channel.sendEmbed(msg);
   }

@@ -1,5 +1,7 @@
 let Yamdbf = require('yamdbf');
 let Discord = require('discord.js');
+let Constants = require('../lib/util/Constants.js');
+
 
 exports.default = class Stats extends Yamdbf.Command {
   constructor (bot) {
@@ -22,15 +24,15 @@ exports.default = class Stats extends Yamdbf.Command {
     let regex = new RegExp('^\\D.{2,11}#\\d{4}$');
 
     if (!args[0]) {
-      msg.setColor(15158332)
+      msg.setColor(Constants.colors.error)
         .setDescription('**Error**: Battletag not provided');
     } else if (args[0].match(regex)) {
-      guildStorage.setItem(message.author.id, args[0]);
+      guildStorage.setItem(message.author.id, { battletag: args[0] });
 
-      msg.setColor(3066993)
+      msg.setColor(Constants.colors.success)
         .setDescription(`**Success**: ${message.author}: You are now associated to **${args[0]}**`);
     } else {
-      msg.setColor(15158332)
+      msg.setColor(Constants.colors.error)
         .setDescription(`**Error**: Invalid battletag: ${args[0]}`);
     }
 

@@ -27,6 +27,8 @@
   "homepage": "https://github.com/carrotderek/ow-discord#readme",
   "dependencies": {
     "discord.js": "^11.0.0",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1",
     "yamdbf": "^2.6.0"
   },
   "devDependencies": {
