@@ -11,4 +11,6 @@ const bot = new Bot({
   version: '1.0.0',
   statusText: 'try @mention help',
   commandsDir: path.join(__dirname, 'commands')
-}).start();
+})
+.setDefaultSetting('prefix', '.')
+.start();
