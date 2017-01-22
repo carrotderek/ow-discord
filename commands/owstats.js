@@ -1,7 +1,9 @@
 let Yamdbf = require('yamdbf');
 let Discord = require('discord.js');
-let Overwatch = require('../lib/overwatch.js');
+let Overwatch = require('../lib/overwatch/ow.js');
+let OverwatchFormatter = require('../lib/overwatch/formatter.js');
 let Constants = require('../lib/util/Constants.js');
+let Collection = require('discord.js').Collection;
 
 exports.default = class Stats extends Yamdbf.Command {
   constructor (bot) {
@@ -21,24 +23,38 @@ exports.default = class Stats extends Yamdbf.Command {
       roles: [],
       ownerOnly: false
     });
+    this.collection = new Collection();
   }
 
   action (message, args, mentions, original) {
-    let msg = new Discord.RichEmbed();
     let guildStorage = this.bot.guildStorages.get(message.guild);
     let battletag = guildStorage.getItem(message.author.id).battletag;
+    let msg;
 
     if (!battletag) {
+      msg = new Discord.RichEmbed();
       msg.setColor(Constants.colors.error)
         .setDescription(`**Error**: ${message.author}: Unable to find associated battletag`);
-    } else {
-      let coo = new Overwatch(battletag);
-      coo.getStats();
 
+      return message.channel.sendEmbed(msg);
     }
 
+    let ow = new Overwatch(this.bot, this.collection, battletag);
+    let gameMode = 'quickplay';
 
+    if (args.indexOf('comp') > -1) gameMode = 'competitive';
 
-    message.channel.sendEmbed(msg);
+    ow.getStats().then(response => {
+      let formatter = new OverwatchFormatter(response, {battletag: battletag, mode: gameMode });
+      let generalStats = formatter.buildGeneralStats();
+      return message.channel.sendEmbed(generalStats);
+
+    }, error => {
+      msg = new Discord.RichEmbed();
+      msg.setColor(Constants.colors.error)
+        .setDescription(`**Error**: ${error}`);
+      return message.channel.sendEmbed(msg);
+    });
   }
+
 };
