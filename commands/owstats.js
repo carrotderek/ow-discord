@@ -34,7 +34,7 @@ exports.default = class Stats extends Yamdbf.Command {
     if (!battletag) {
       msg = new Discord.RichEmbed();
       msg.setColor(Constants.colors.error)
-        .setDescription(`**Error**: ${message.author}: Unable to find associated battletag`);
+        .setDescription(`**Error**: ${message.author}: Unable to find associated battletag, use the .bnetlink command to associate your battle.net account.`);
 
       return message.channel.sendEmbed(msg);
     }
