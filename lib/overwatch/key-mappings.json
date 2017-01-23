@@ -1,12 +1,13 @@
 {
   "overall": {
     "level": "Level",
-    "tier": "Tier",
-    "rank": "Competitive rank",
+    "sr-tier": "SR/Tier",
     "time_played": "Time played",
     "ed_ratio": "E/D ratio",
     "wins": "Wins",
-    "win_rate": "Win rate"
+    "win_rate": "Win rate",
+    "record": "Record",
+    "on-fire": "On fire"
   },
 
   "average": {

@@ -28,7 +28,7 @@ exports.default = class Stats extends Yamdbf.Command {
 
   action (message, args, mentions, original) {
     let guildStorage = this.bot.guildStorages.get(message.guild);
-    let battletag = guildStorage.getItem(message.author.id).battletag;
+    let battletag = guildStorage.getItem(message.author.id).battletag || null;
     let msg;
 
     if (!battletag) {
@@ -52,7 +52,7 @@ exports.default = class Stats extends Yamdbf.Command {
     }, error => {
       msg = new Discord.RichEmbed();
       msg.setColor(Constants.colors.error)
-        .setDescription(`**Error**: ${error}`);
+        .setDescription(`${error}`);
       return message.channel.sendEmbed(msg);
     });
   }
