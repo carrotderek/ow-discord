@@ -21,7 +21,7 @@ exports.default = class Stats extends Yamdbf.Command {
   action (message, args, mentions, original) {
     let msg = new Discord.RichEmbed();
     let guildStorage = this.bot.guildStorages.get(message.guild);
-    let regex = new RegExp('^\\D.{2,11}#\\d{4}$');
+    let regex = new RegExp(Constants.overwatch.battletagRegex);
 
     if (!args[0]) {
       msg.setColor(Constants.colors.error)

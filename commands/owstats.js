@@ -1,6 +1,6 @@
 let Yamdbf = require('yamdbf');
 let Discord = require('discord.js');
-let Overwatch = require('../lib/overwatch/ow.js');
+let OverwatchRequest = require('../lib/overwatch/requests.js');
 let OverwatchFormatter = require('../lib/overwatch/formatter.js');
 let Constants = require('../lib/util/Constants.js');
 let Collection = require('discord.js').Collection;
@@ -39,7 +39,7 @@ exports.default = class Stats extends Yamdbf.Command {
       return message.channel.sendEmbed(msg);
     }
 
-    let ow = new Overwatch(this.bot, this.collection, battletag);
+    let ow = new OverwatchRequest(this.bot, this.collection, battletag);
     let gameMode = 'quickplay';
 
     if (args.indexOf('comp') > -1) gameMode = 'competitive';
