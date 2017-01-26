@@ -1,9 +1,6 @@
 let Yamdbf = require('yamdbf');
 let Discord = require('discord.js');
-let OverwatchRequest = require('../lib/overwatch/requests.js');
-let OverwatchFormatter = require('../lib/overwatch/formatter.js');
 let Constants = require('../lib/util/Constants.js');
-let Collection = require('discord.js').Collection;
 
 let OverwatchStatsLoader = require('../lib/overwatch/stats-loader.js');
 
@@ -23,7 +20,6 @@ exports.default = class QuickplayStats extends Yamdbf.Command {
       roles: [],
       ownerOnly: false
     });
-    this.collection = new Collection();
   }
 
   action (message, args, mentions, original) {
@@ -31,12 +27,19 @@ exports.default = class QuickplayStats extends Yamdbf.Command {
     let guildStorage;
 
     if (!battletag) {
-      guildStorage = this.bot.guildStorages.get(message.guild);
-      battletag = guildStorage.getItem(message.author.id).battletag || null;
+      try {
+        guildStorage = this.bot.guildStorages.get(message.guild);
+        battletag = guildStorage.getItem(message.author.id).battletag || null;
+      } catch (TypeError) {
+        let embed = new Discord.RichEmbed()
+          .setColor(Constants.colors.error)
+          .setDescription('You must associate your Discord account with your battle.net battletag. Use bnetlink command to do so');
+        return message.channel.sendEmbed(embed);
+      }
     }
 
     let statsLoader = new OverwatchStatsLoader(this.bot, battletag, Constants.overwatch.mode.quickplay);
-    let cool = statsLoader.fetchStats().then(response => {
+    statsLoader.fetchStats().then(response => {
       return message.channel.sendEmbed(response);
     }, error => {
       return message.channel.sendEmbed(error);

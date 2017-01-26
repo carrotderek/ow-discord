@@ -29,7 +29,7 @@ exports.default = class CompStats extends Yamdbf.Command {
     if (!battletag) {
       try {
         guildStorage = this.bot.guildStorages.get(message.guild);
-        battletag = guildStorage.getItem(message.author.id).battletag;
+        battletag = guildStorage.getItem(message.author.id).battletag || null;
       } catch (TypeError) {
         let embed = new Discord.RichEmbed()
           .setColor(Constants.colors.error)
@@ -39,7 +39,7 @@ exports.default = class CompStats extends Yamdbf.Command {
     }
 
     let statsLoader = new OverwatchStatsLoader(this.bot, battletag, Constants.overwatch.mode.competitive);
-    let cool = statsLoader.fetchStats().then(response => {
+    statsLoader.fetchStats().then(response => {
       return message.channel.sendEmbed(response);
     }, error => {
       return message.channel.sendEmbed(error);
