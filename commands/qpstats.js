@@ -23,22 +23,14 @@ exports.default = class QuickplayStats extends Yamdbf.Command {
   }
 
   action (message, args, mentions, original) {
-    let battletag = args[0];
-    let guildStorage;
-
-    if (!battletag) {
-      try {
-        guildStorage = this.bot.guildStorages.get(message.guild);
-        battletag = guildStorage.getItem(message.author.id).battletag || null;
-      } catch (TypeError) {
-        let embed = new Discord.RichEmbed()
-          .setColor(Constants.colors.error)
-          .setDescription('You must associate your Discord account with your battle.net battletag. Use bnetlink command to do so');
-        return message.channel.sendEmbed(embed);
-      }
+    let options = {
+      bot: this.bot,
+      battletag: args[0],
+      mode: Constants.overwatch.mode.quickplay,
+      message: message
     }
 
-    let statsLoader = new OverwatchStatsLoader(this.bot, battletag, Constants.overwatch.mode.quickplay);
+    let statsLoader = new OverwatchStatsLoader(options);
     statsLoader.fetchStats().then(response => {
       return message.channel.sendEmbed(response);
     }, error => {
