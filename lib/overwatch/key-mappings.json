@@ -7,7 +7,8 @@
     "wins": "Wins",
     "win_rate": "Win rate",
     "record": "Record",
-    "on-fire": "On fire"
+    "on-fire": "On fire",
+    "elims_per_life": "Eliminations per life"
   },
 
   "average": {
