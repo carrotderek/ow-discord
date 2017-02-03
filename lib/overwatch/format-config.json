@@ -1,0 +1,273 @@
+{
+  "stat_structure": {
+    "overall": {
+      "average": [
+        "eliminations_avg",
+        "deaths_avg",
+        "damage_done_avg",
+        "healing_done_avg",
+        "final_blows_avg",
+        "solo_kills_avg"
+      ]
+    },
+
+    "heroes": {
+      "core": [
+        "eliminations_most_in_game",
+        "eliminations_most_in_life",
+        "final_blows_most_in_game",
+        "kill_streak_best",
+        "damage_done_most_in_game"
+      ],
+
+      "specific": {
+        "ana": [
+          "scoped_accuracy",
+          "unscoped_accuracy",
+          "scoped_accuracy_best_in_game",
+          "nano_boost_assists_most_in_game"
+        ],
+        "bastion": [
+          "recon_kills_most_in_game",
+          "tank_kills_most_in_game",
+          "sentry_kills_most_in_game"
+        ],
+        "dva": [
+          "mechs_called_most_in_game",
+          "damage_blocked_most_in_game"
+        ],
+        "genji": [
+          "dragonblade_kill_most_in_game",
+          "damage_reflected_most_in_game"
+        ],
+        "hanzo": [
+          "recon_assists_most_in_game",
+          "scatter_arrow_kill_most_in_game"
+        ],
+        "junkrat": [
+          "rip_tire_kills_most_in_game",
+          "enemies_trapped_most_in_game"
+        ],
+        "lucio": [ "sound_barriers_provided_most_in_game" ],
+        "mercy": [ "players_resurrected_most_in_game" ],
+        "mccree": [ "deadeye_kills_most_in_game" ],
+        "pharah": [
+          "rocket_direct_hits_most_in_game",
+          "barrage_kills_most_in_game"
+        ],
+        "reaper": [
+          "death_blossom_kills_most_in_game",
+          "souls_consumed_most_in_game"
+        ],
+        "reinhardt": [
+          "charge_kills_most_in_game",
+          "fire_strike_kills_most_in_game",
+          "earthshatter_kills_most_in_game",
+          "damage_blocked_most_in_game"
+        ],
+        "soldier76": [
+          "helix_rocket_kills_most_in_game",
+          "tactical_visor_kills_most_in_game"
+        ],
+        "symmetra": [
+          "teleporter_uptime_best_in_game",
+          "players_teleported_most_in_game",
+          "sentry_turret_kills_most_in_game"
+        ],
+        "roadhog": [
+          "hook_accuracy",
+          "hook_accuracy_best_in_game",
+          "enemies_hooked_most_in_game",
+          "whole_hog_kills_most_in_game"
+        ],
+        "tracer": [
+          "pulse_bomb_kills_most_in_game",
+          "pulse_bomb_attached_most_in_game"
+        ],
+        "torbjorn": [
+          "molten_core_kills_most_in_game",
+          "torbjorn_kills_most_in_game"
+        ],
+        "widowmaker": [
+          "recon_assists_most_in_game",
+          "scoped_accuracy_best_in_game",
+          "scoped_critical_hits_most_in_game"
+        ],
+        "winston": [
+          "melee_kills_most_in_game",
+          "players_knocked_back_most_in_game",
+          "jump_pack_kills_most_in_game",
+          "damage_blocked_most_in_game"
+        ],
+        "zarya": [
+          "high_energy_kills_most_in_game",
+          "graviton_surge_kills_most_in_game",
+          "damage_blocked_most_in_game"
+        ],
+        "zenyatta": [ "transcendance_healing_best"]
+      },
+      "optional": [
+        "multikill_best",
+        "solo_kill_most_in_game",
+        "solo_kills_most_in_game",
+        "healing_done_most_in_game",
+        "self_healing_most_in_game",
+        "weapon_accuracy",
+        "weapon_accuracy_best_in_game",
+        "critical_hits_most_in_game",
+        "defensive_assists_most_in_game",
+        "offensive_assists_most_in_game"
+      ]
+    }
+  },
+
+  "ux_config": {
+    "strings": {
+      "overall": {
+        "level": "Level",
+        "sr-tier": "SR/Tier",
+        "time_played": "Time played",
+        "ed_ratio": "E/D ratio",
+        "wins": "Wins",
+        "win_rate": "Win rate",
+        "record": "Record",
+        "on-fire": "On fire",
+        "elims_per_life": "Eliminations per life"
+     },
+
+      "average": {
+        "eliminations_avg": "Average eliminations",
+        "deaths_avg": "Average deaths",
+        "damage_done_avg": "Average damage",
+        "healing_done_avg": "Average healing",
+        "final_blows_avg": "Average final blows",
+        "solo_kills_avg": "Average solo kills",
+        "objective_time_avg": "Average objective time",
+        "objective_kills_avg": "Average objective kills"
+      },
+
+      "general_hero": {
+        "eliminations_most_in_game": "Most eliminations",
+        "eliminations_most_in_life": "Most eliminations in a life",
+        "final_blows_most_in_game": "Most final blows",
+        "kill_streak_best": "Best kill streak",
+        "damage_done_most_in_game": "Most damage done",
+        "solo_kill_most_in_game": "Most solo kills",
+        "solo_kills_most_in_game": "Most solo kills",
+        "multikill_best": "Highest multikill",
+        "healing_done_most_in_game": "Most healing done",
+        "self_healing_most_in_game": "Most self-healing done",
+        "weapon_accuracy": "Weapon accuracy",
+        "weapon_accuracy_best_in_game": "Highest weapon accuracy",
+        "critical_hits_most_in_game": "Most critical hits",
+        "defensive_assists_most_in_game": "Most defensive assists",
+        "offensive_assists_most_in_game": "Most offensive assists"
+      },
+      "specific_hero": {
+        "ana": {
+          "unscoped_accuracy": "Unscoped accuracy",
+          "scoped_accuracy": "Scoped accuracy",
+          "scoped_accuracy_best_in_game": "Best scoped accuracy",
+          "nano_boost_assists_most_in_game": "Most nano boosts"
+        },
+        "bastion": {
+          "recon_kills_most_in_game": "Most recon kills",
+          "tank_kills_most_in_game": "Most tank kills",
+          "sentry_kills_most_in_game": "Most sentry kills"
+        },
+        "dva": {
+          "mechs_called_most_in_game": "Most mech called",
+          "damage_blocked_most_in_game": "Most damage blocked"
+        },
+        "genji": {
+          "dragonblade_kill_most_in_game": "Most dragonblade kills",
+          "damage_reflected_most_in_game": "Most damage reflected"
+        },
+        "hanzo": {
+          "recon_assists_most_in_game": "Most recon assists",
+          "scatter_arrow_kill_most_in_game": "Most scatter-arrow kills"
+        },
+        "junkrat": {
+          "rip_tire_kills_most_in_game": "Most rip-tire kills",
+          "enemies_trapped_most_in_game": "Most enemies trapped"
+        },
+        "lucio": {
+          "sound_barriers_provided_most_in_game": "Most sound barriers provided"
+        },
+        "mercy": {
+          "players_resurrected_most_in_game": "Most players resurrected"
+        },
+        "mccree": {
+          "deadeye_kills_most_in_game": "Most deadeye kills"
+        },
+        "pharah": {
+          "rocket_direct_hits_most_in_game": "Most direct hits",
+          "barrage_kills_most_in_game": "Most barrage kills"
+        },
+        "reaper": {
+          "death_blossom_kills_most_in_game": "Most death blossom kills",
+          "souls_consumed_most_in_game": "Most souls consumed"
+        },
+        "reinhardt": {
+          "charge_kills_most_in_game": "Most charge kills",
+          "fire_strike_kills_most_in_game": "Most fire-strike kills",
+          "earthshatter_kills_most_in_game": "Most earthshatter kills",
+          "damage_blocked_most_in_game": "Most damage blocked"
+        },
+        "roadhog": {
+          "hook_accuracy": "Hook accuracy",
+          "hook_accuracy_best_in_game": "Best hook accuracy",
+          "enemies_hooked_most_in_game": "Most enemies hooked",
+          "whole_hog_kills_most_in_game": "Most whole hog kills"
+        },
+        "soldier76": {
+          "helix_rocket_kills_most_in_game": "Most helix rocket kills",
+          "tactical_visor_kills_most_in_game": "Most tactical visor kills"
+        },
+        "symmetra": {
+          "teleporter_uptime_best_in_game": "Best teleporter uptime",
+          "players_teleported_most_in_game": "Most players teleported",
+          "sentry_turret_kills_most_in_game": "Most sentry turret kills"
+        },
+        "torbjorn": {
+          "molten_core_kills_most_in_game": "Most molten core kills",
+          "torbjorn_kills_most_in_game": "Most sentry kills"
+        },
+        "tracer": {
+          "pulse_bomb_kills_most_in_game": "Most pulse bomb kills",
+          "pulse_bomb_attached_most_in_game": "Most pulse bombs attached"
+        },
+        "widowmaker": {
+          "recon_assists_most_in_game": "Most recon assists",
+          "scoped_accuracy": "Scoped accuracy",
+          "scoped_accuracy_best_in_game": "Best scoped accuracy",
+          "scoped_critical_hits_most_in_game": "Most scoped critical hits"
+        },
+        "winston": {
+          "melee_kills_most_in_game": "Most melee kills",
+          "jump_pack_kills_most_in_game": "Most jump pack kills",
+          "players_knocked_back_most_in_game": "Most players knocked back",
+          "damage_blocked_most_in_game": "Most damaged blocked"
+        },
+        "zarya": {
+          "high_energy_kills_most_in_game": "Most high-energy kills",
+          "graviton_surge_kills_most_in_game": "Most graviton surge kills",
+          "damage_blocked_most_in_game": "Most damage blocked"
+        },
+        "zenyatta": {
+          "transcendance_healing_best": "Most transcendence healing"
+        }
+      }
+    },
+
+    "requires_percentage": [
+      "weapon_accuracy",
+      "weapon_accuracy_best_in_game",
+      "scoped_accuracy_best_in_game",
+      "scoped_accuracy",
+      "unscoped_accuracy",
+      "hook_accuracy",
+      "hook_accuracy_best_in_game"
+    ]
+  }
+}
