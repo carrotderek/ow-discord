@@ -1,10 +1,10 @@
-let Yamdbf = require('yamdbf');
-let Discord = require('discord.js');
-let Constants = require('../lib/util/Constants.js');
+const Yamdbf = require('yamdbf');
+const Discord = require('discord.js');
+const Constants = require('../lib/util/Constants.js');
 
-let OverwatchStatsLoader = require('../lib/overwatch/stats-loader.js');
+const OverwatchStatsLoader = require('../lib/overwatch/stats-loader.js');
 
-exports.default = class QuickplayStats extends Yamdbf.Command {
+class CompHero extends Yamdbf.Command {
   constructor (bot) {
     super (bot, {
       name: 'comphero',
@@ -23,19 +23,20 @@ exports.default = class QuickplayStats extends Yamdbf.Command {
   }
 
   action (message, args, mentions, original) {
-    let options = {
+    const statsLoader = new OverwatchStatsLoader({
       bot: this.bot,
       battletag: args[1],
       hero: args[0],
       mode: Constants.overwatch.mode.competitive,
       message: message
-    }
+    });
 
-    let statsLoader = new OverwatchStatsLoader(options);
     statsLoader.fetchStats().then(response => {
       return message.channel.sendEmbed(response);
     }, error => {
       return message.channel.sendEmbed(error);
     });
   }
-};
+}
+
+exports.default = CompHero;

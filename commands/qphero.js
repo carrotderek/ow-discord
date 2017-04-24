@@ -1,10 +1,12 @@
-let Yamdbf = require('yamdbf');
-let Discord = require('discord.js');
-let Constants = require('../lib/util/Constants.js');
+const Yamdbf = require('yamdbf');
+const Discord = require('discord.js');
+const Constants = require('../lib/util/Constants.js');
+const OverwatchStatsLoader = require('../lib/overwatch/stats-loader.js');
 
-let OverwatchStatsLoader = require('../lib/overwatch/stats-loader.js');
-
-exports.default = class QuickplayStats extends Yamdbf.Command {
+/**
+ * Discord bot command for quickplay stats for a specific hero
+ */
+class QuickplayHero extends Yamdbf.Command {
   constructor (bot) {
     super (bot, {
       name: 'qphero',
@@ -23,19 +25,20 @@ exports.default = class QuickplayStats extends Yamdbf.Command {
   }
 
   action (message, args, mentions, original) {
-    let options = {
+    const statsLoader = new OverwatchStatsLoader({
       bot: this.bot,
       battletag: args[1],
       hero: args[0],
       mode: Constants.overwatch.mode.quickplay,
       message: message
-    }
+    });
 
-    let statsLoader = new OverwatchStatsLoader(options);
     statsLoader.fetchStats().then(response => {
       return message.channel.sendEmbed(response);
     }, error => {
       return message.channel.sendEmbed(error);
     });
   }
-};
+}
+
+exports.default = QuickplayHero;
