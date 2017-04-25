@@ -5,6 +5,10 @@
 
 Omnic is a Discord bot for displaying Overwatch statistics 
 
+![Quickplay stats](https://github.com/carrotderek/ow-discord/blob/master/media/qp.png?raw=true)
+
+![Competitive hero stats](https://github.com/carrotderek/ow-discord/blob/master/media/comp-hero.png?raw=true)
+
 ## Commands
 ```
 .bnetlink <battletag> - associate battletag to your Discord account
@@ -19,6 +23,7 @@ Adequate test coverage (I'm bad)
 
 ## Credit
 Discord.js framework - [YAMDBF](https://github.com/zajrik/yamdbf)
+
 Overwatch API - [OWAPI - Overwatch JSON API](https://github.com/SunDwarf/OWAPI)
 
 
