@@ -4,7 +4,7 @@
   "description": "Javascript Bot for Discord. Game: Overwatch",
   "main": "main.js",
   "scripts": {
-    "test": "mocha"
+    "test": "jasmine test"
   },
   "repository": {
     "type": "git",
@@ -32,9 +32,7 @@
     "yamdbf": "^2.6.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
     "eslint": "^3.13.1",
-    "mocha": "^3.2.0",
-    "sinon": "^1.17.7"
+    "jasmine": "^2.6.0"
   }
 }
