@@ -5,9 +5,9 @@
 
 Omnic is a Discord bot for displaying Overwatch statistics 
 
-![Quickplay stats](https://github.com/carrotderek/ow-discord/blob/master/media/qp.png?raw=true)
+![Quickplay stats](https://github.com/carrotderek/ow-discord/blob/master/media/qp.png?raw=true | width=500)
 
-![Competitive hero stats](https://github.com/carrotderek/ow-discord/blob/master/media/comp-hero.png?raw=true)
+![Competitive hero stats](https://github.com/carrotderek/ow-discord/blob/master/media/comp-hero.png?raw=true | width=500)
 
 ## Commands
 ```
